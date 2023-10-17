@@ -63,6 +63,11 @@
 				"internalType": "string",
 				"name": "_content",
 				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_imgUrl",
+				"type": "string"
 			}
 		],
 		"name": "createPost",
@@ -133,6 +138,11 @@
 						"internalType": "uint256",
 						"name": "likes",
 						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "imgUrl",
+						"type": "string"
 					}
 				],
 				"indexed": false,
@@ -188,6 +198,11 @@
 						"internalType": "uint256",
 						"name": "likes",
 						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "imgUrl",
+						"type": "string"
 					}
 				],
 				"indexed": false,
@@ -278,6 +293,11 @@
 						"internalType": "uint256",
 						"name": "likes",
 						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "imgUrl",
+						"type": "string"
 					}
 				],
 				"internalType": "struct Blog.Post[]",
@@ -373,6 +393,11 @@
 						"internalType": "uint256",
 						"name": "likes",
 						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "imgUrl",
+						"type": "string"
 					}
 				],
 				"internalType": "struct Blog.Post[]",
@@ -453,6 +478,11 @@
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",
@@ -502,6 +532,11 @@
 				"internalType": "uint256",
 				"name": "likes",
 				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "imgUrl",
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",

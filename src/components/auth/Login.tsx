@@ -1,10 +1,13 @@
 import { loginUser } from '@/hooks/Web3';
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
     const [username, setUsername] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [loggedIn, setLoggedIn] = React.useState(false);
     const [checkEvent, setCheckEvent] = React.useState(true);
+    const router = useRouter();
     const login = async () => {
         setCheckEvent(true);
         const contract = await loginUser(username, password);
@@ -13,6 +16,8 @@ const Login = () => {
             console.log(address, success);
             if (success) {
                 alert("Login successful!");
+                setLoggedIn(true);
+                console.log(loggedIn)
             } else {
                 alert("Login failed!");
                 window.location.reload();
@@ -20,6 +25,12 @@ const Login = () => {
             setCheckEvent(false);
         })
     }
+
+    useEffect(() => {
+        if (loggedIn) {
+            router.push("/blog");
+        }
+    }, [loggedIn, router])
 
     return (
         <div>

@@ -12,14 +12,14 @@ interface Contract {
 
 export const BlogContract: Contract = {
     name: 'Blog',
-    address: '0xc071069E88f9AB06e732e814F6f17F8e4E072b97',
+    address: '0x24ca1FcEC990504c0F8D92BC2d861afF4Ad9d890',
     abi: blogAbi,
     bytecode: blogBytecode
 }
 
 export const UserContract: Contract = {
     name: 'User',
-    address: '0xDf322F826C45aA0e2484833dA1A60bd5629b434a',
+    address: '0x1c90F1c39bB9C8A5434D5878390664e1726B4018',
     abi: userAbi,
     bytecode: userBytecode
 }

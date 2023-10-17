@@ -24,24 +24,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_username",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_password",
-				"type": "string"
-			}
-		],
-		"name": "register",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
@@ -64,6 +46,24 @@
 		],
 		"name": "LoginAttempt",
 		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_username",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_password",
+				"type": "string"
+			}
+		],
+		"name": "register",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"inputs": [
@@ -123,6 +123,72 @@
 		"type": "event"
 	},
 	{
+		"inputs": [],
+		"name": "getAllUsers",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "username",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "password",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					}
+				],
+				"internalType": "struct UserAuth.User[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_userAddress",
+				"type": "address"
+			}
+		],
+		"name": "getUser",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "username",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "password",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					}
+				],
+				"internalType": "struct UserAuth.User",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -157,6 +223,25 @@
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "userAddresses",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address",
 				"name": "",
 				"type": "address"
@@ -173,6 +258,11 @@
 				"internalType": "string",
 				"name": "password",
 				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "ethAddress",
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",

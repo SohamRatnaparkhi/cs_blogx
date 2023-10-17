@@ -1,15 +1,17 @@
-// SPDX-License-Identifier: MIT 
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract UserAuth {
     struct User {
         string username;
         string password;
+        address ethAddress;
     }
 
     address public owner;
 
     mapping(address => User) public users;
+    address[] public userAddresses; // New array to store user addresses
 
     event UserRegistered(address indexed userAddress, string username);
     event UsernameUpdated(
@@ -36,7 +38,8 @@ contract UserAuth {
             bytes(users[msg.sender].username).length == 0,
             "User already registered"
         );
-        users[msg.sender] = User(_username, _password);
+        users[msg.sender] = User(_username, _password, msg.sender);
+        userAddresses.push(msg.sender); // Add user address to the array
         emit UserRegistered(msg.sender, _username);
     }
 
@@ -67,5 +70,17 @@ contract UserAuth {
 
     function isRegistered(address _userAddress) public view returns (bool) {
         return bytes(users[_userAddress].username).length > 0;
+    }
+
+    function getUser(address _userAddress) public view returns (User memory) {
+        return users[_userAddress];
+    }
+
+    function getAllUsers() public view returns (User[] memory) {
+        User[] memory userList = new User[](userAddresses.length);
+        for (uint256 i = 0; i < userAddresses.length; i++) {
+            userList[i] = users[userAddresses[i]];
+        }
+        return userList;
     }
 }

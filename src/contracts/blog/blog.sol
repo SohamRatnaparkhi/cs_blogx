@@ -11,6 +11,7 @@ contract Blog {
         uint[] comments;
         bool isDeleted;
         uint likes;
+        string imgUrl;
     }
 
     struct Comment {
@@ -27,7 +28,7 @@ contract Blog {
     Post[] public posts;
     Comment[] public comments;
 
-    function createPost(string memory _title, string memory _content) public {
+    function createPost(string memory _title, string memory _content, string memory _imgUrl) public {
         uint[] memory emptyComments;
         posts.push(
             Post(
@@ -38,7 +39,8 @@ contract Blog {
                 block.timestamp,
                 emptyComments,
                 false,
-                0
+                0,
+                _imgUrl
             )
         );
         emit PostCreated(posts[posts.length - 1]);
@@ -56,12 +58,13 @@ contract Blog {
             address,
             uint,
             uint[] memory,
-            uint
+            uint,
+            string memory
         )
     {
         Post memory post = posts[_id];
         if (post.isDeleted) {
-            return (0, "", "", address(0), 0, new uint[](0), 0);
+            return (0, "", "", address(0), 0, new uint[](0), 0, "");
         }
         return (
             post.id,
@@ -70,7 +73,8 @@ contract Blog {
             post.author,
             post.timestamp,
             post.comments,
-            post.likes
+            post.likes,
+            post.imgUrl
         );
     }
 

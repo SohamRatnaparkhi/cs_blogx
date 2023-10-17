@@ -1,11 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import ConnectButton from '@/components/auth/ConnectButton'
-import Image from 'next/image'
+import ConnectButton from '@/components/auth/ConnectButton';
 
 export default function Home() {
-  return (
+    return (
     <main className="bg-[#0e121e] overflow-x-hidden h-screen">
-      <div className="flex flex-col sm:flex-row">
+        <div className="flex flex-col sm:flex-row">
             <div className="basis-1/3 text-center"></div>
             <div className="basis-1/3 text-center mt-20">
                 <div className="text-3xl font-bold hover:underline-offset-4 hover:text-4xl hover:pb-8 pb-5 mt-20">
@@ -26,5 +25,5 @@ export default function Home() {
             <div className="basis-1/3 text-center"></div>
         </div>
     </main>
-  )
+    )
 }
