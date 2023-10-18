@@ -1,7 +1,6 @@
 import { BlogContract, UserContract } from "@/contracts/Contract"
 import { getWalletDetails } from "./Web3";
 import { ethers } from "ethers";
-import Blog from "@/components/blog/Blog";
 
 export const getAllBlogs = async (): Promise<{
     blogs: Blog[],
